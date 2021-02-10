@@ -3,11 +3,11 @@
 
 ## Table dictionary
 
-`catalog.system`: Defines source systems that may contain multiple tables
-`catalog.instance`: Defines instances of source systems
-`catalog.schema`: Defines schemas that store tables
-`catalog.table`: Defines tables of source systems that are stored in schemas
-`catalog.column`: Defines attributes of columns within tables
+- `catalog.system`: Defines source systems that may contain multiple tables
+- `catalog.instance`: Defines instances of source systems
+- `catalog.schema`: Defines schemas that store tables
+- `catalog.table`: Defines tables of source systems that are stored in schemas
+- `catalog.column`: Defines attributes of columns within tables
 
 ## Folder structure
 ```bash

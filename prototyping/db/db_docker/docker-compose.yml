@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment: 
+      POSTGRES_DB: "demo_db"
+      POSTGRES_USER: "db_user"
+      POSTGRES_PASSWORD: "secret"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

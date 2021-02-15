@@ -1,0 +1,85 @@
+# The section below contains a catalog-like structure as a yaml representation
+object:
+  system:
+    schema: catalog
+    attributes:
+      id column:
+        - id
+      columns:
+        - name
+        - description
+        - created_on
+        - is_deleted
+        - deleted_on
+    description: |
+      Defines source systems that might contain multiple tables     
+  instance:
+    schema: catalog
+    attributes:
+      id column:
+        - id
+      columns:
+        - name
+        - description
+        - system_id
+        - created_on
+        - is_deleted
+        - deleted_on
+    description: |
+      Defines instances of source systems
+    references:
+        - {schema: catalog, table: system, column: id}
+  schema:
+    schema: catalog
+    attributes:
+      id column:
+        - id
+      columns:
+        - name
+        - description
+        - created_on
+        - is_deleted
+        - deleted_on
+    description: |
+      Defines schemas that store tables
+  table:
+    schema: catalog
+    attributes:
+      id column:
+        - id
+      columns:
+        - name
+        - description
+        - schema_id
+        - instance_id
+        - created_on
+        - is_deleted
+        - deleted_on
+    description: |
+      Defines tables of source systems that are stored in schemas
+    references:
+        - {schema: catalog, table: instance, column: id}
+        - {schema: catalog, table: schema, column: id}
+  column:
+    schema: catalog
+    attributes:
+      id column:
+        - id
+      columns:
+        - name
+        - description
+        - ordinal
+        - data_type
+        - length
+        - precision
+        - scale
+        - nullable
+        - column_default
+        - table_id
+        - created_on
+        - is_deleted
+        - deleted_on
+    description: |
+      Defines attributes of columns within tables
+    references:
+        - {schema: catalog, table: table, column: id}
